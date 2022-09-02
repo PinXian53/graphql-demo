@@ -1,0 +1,8 @@
+FROM tomcat:8.5.47-jdk8-openjdk
+# 因為要使用 ROOT.war 所以要先刪除原先存在的 ROOT 資料夾
+RUN ["rm", "-fr", "/usr/local/tomcat/webapps/ROOT"]
+COPY target/graphql_demo-0.0.1-SNAPSHOT.war webapps/ROOT.war
+RUN sed -i 's/port="8080"/port="8080"/' /usr/local/tomcat/conf/server.xml
+EXPOSE 8080
+# start application
+CMD ["catalina.sh","run"]
