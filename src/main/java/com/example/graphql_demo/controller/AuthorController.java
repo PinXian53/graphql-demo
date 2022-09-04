@@ -2,7 +2,7 @@ package com.example.graphql_demo.controller;
 
 import com.example.graphql_demo.dao.Author;
 import com.example.graphql_demo.dao.Book;
-import com.example.graphql_demo.model.CreateBookInput;
+import com.example.graphql_demo.model.CreateAuthorInput;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -12,25 +12,27 @@ import org.springframework.stereotype.Controller;
 import java.util.List;
 
 @Controller
-public class BookController {
+public class AuthorController {
+
 
     @MutationMapping
-    public Book createBook(@Argument CreateBookInput input) {
-        return Book.createBook(input);
+    public Author createAuthor(@Argument CreateAuthorInput input) {
+        return Author.createAuthor(input);
     }
 
     @QueryMapping
-    public List<Book> getAllBook() {
-        return Book.getAll();
+    public List<Author> getAllAuthor() {
+        return Author.getAll();
     }
 
     @QueryMapping
-    public Book getBookById(@Argument String id) {
-        return Book.getById(id);
+    public Author getAuthorById(@Argument String id) {
+        return Author.getAuthorByBookId(id);
     }
+
 
     @SchemaMapping
-    public List<Book> book(Author author) {
-        return Book.findByAuthorId(author.getId());
+    public Author author(Book book) {
+        return Author.getById(book.getAuthorId());
     }
 }
