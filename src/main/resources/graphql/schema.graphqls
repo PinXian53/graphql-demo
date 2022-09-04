@@ -1,3 +1,5 @@
+scalar Timestamp
+
 type Query {
     "取得所有作者"
     getAllAuthor:[Author!]!
@@ -26,7 +28,7 @@ type Book {
     "頁數"
     pageCount: Int
     "出版日期"
-    publicationDate: String
+    publicationDate: Timestamp
     "內容描述"
     description: String
 }
@@ -37,7 +39,7 @@ type Author {
     "姓名"
     name: String!
     "出生日"
-    birthDay: String
+    birthDay: Timestamp
     "撰寫之書籍"
     book :[Book!]
 }
@@ -50,7 +52,7 @@ input CreateBookInput{
     "頁數"
     pageCount: Int
     "出版日期"
-    publicationDate: String
+    publicationDate: Timestamp
     "內容描述"
     description: String
 }
@@ -59,5 +61,5 @@ input CreateAuthorInput {
     "姓名"
     name: String!
     "出生日"
-    birthDay: String
+    birthDay: Timestamp
 }
