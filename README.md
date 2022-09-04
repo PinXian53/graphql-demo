@@ -15,7 +15,7 @@
 ![image](https://github.com/PinXian53/graphql-demo/blob/main/img/Query-1.png)
 
 調整 query 回傳內容會一起調整
-![image](https://github.com/PinXian53/graphql-demo/blob/main/img/Query-1.png)
+![image](https://github.com/PinXian53/graphql-demo/blob/main/img/Query-2.png)
 
 實作 Mutation 進行資料新增
 ![image](https://github.com/PinXian53/graphql-demo/blob/main/img/Mutation-1.png)
