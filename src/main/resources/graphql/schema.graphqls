@@ -1,16 +1,63 @@
 type Query {
-  bookById(id: ID): Book
+    "取得所有作者"
+    getAllAuthor:[Author!]!
+    "取得所有作者"
+    getAllBook:[Book!]!
+    "透過ID取得作者"
+    getAuthorById(id: ID): Author
+    "透過ID取得書籍"
+    getBookById(id: ID): Book
+}
+
+type Mutation {
+    "建立作者"
+    createAuthor(input: CreateAuthorInput):Author
+    "建立書籍"
+    createBook(input: CreateBookInput): Book
 }
 
 type Book {
-  id: ID
-  name: String
-  pageCount: Int
-  author: Author
+    "ID"
+    id: ID!
+    "書名"
+    name: String!
+    "作者"
+    author: Author
+    "頁數"
+    pageCount: Int
+    "出版日期"
+    publicationDate: String
+    "內容描述"
+    description: String
 }
 
 type Author {
-  id: ID
-  firstName: String
-  lastName: String
+    "ID"
+    id: ID!
+    "姓名"
+    name: String!
+    "出生日"
+    birthDay: String
+    "撰寫之書籍"
+    book :[Book!]
+}
+
+input CreateBookInput{
+    "姓名"
+    name: String!
+    "作者ID"
+    authorId: String
+    "頁數"
+    pageCount: Int
+    "出版日期"
+    publicationDate: String
+    "內容描述"
+    description: String
+}
+
+input CreateAuthorInput {
+    "姓名"
+    name: String!
+    "出生日"
+    birthDay: String
 }
